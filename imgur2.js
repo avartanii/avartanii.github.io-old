@@ -37,10 +37,10 @@ window.GiphySearchController = (() => {
                                 //     alt: image.title
                                 // })
                                     $("<a></a>").attr({
+                                        href: image.link
                                         $("<img/>").attr({
                                             src: image.link
                                         })
-                                        href: image.link
                                     }).text(image.title)
                                 );
                         })
