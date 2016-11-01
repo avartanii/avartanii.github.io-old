@@ -72,6 +72,22 @@ window.GiphySearchController = (() => {
             var fileReader = new FileReader();
             //var file_path = image_to_upload.val()
 
+            $("image-upload-form").submit(() => {
+                $.ajax({ 
+                    url: 'https://api.imgur.com/3/upload',
+                    headers: {
+                        Authorization: 'Client-ID 4211f725b72b537'
+                    },
+                    method: 'POST',
+                    //type: 'POST',
+                    data: {
+                        'image': fileReader.readAsBinaryString(image_to_upload.val()) //image_to_upload.val().split('/').pop().split('\\').pop() //.replace("C:\\fakepath\\", "") //'helloworld.jpg'
+                    },
+                    success: function() { console.log('cool'); }
+                });
+                return false;
+            });
+
             uploadImage.click(() => {
                // alert(file_path);
                $.ajax({ 
