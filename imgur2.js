@@ -79,9 +79,10 @@ window.GiphySearchController = (() => {
                     headers: {
                         Authorization: 'Client-ID 4211f725b72b537'
                     },
+                    method: 'POST',
                     //type: 'POST',
                     data: {
-                        'image': image_to_upload.getAsBinary() //image_to_upload.val().split('/').pop().split('\\').pop() //.replace("C:\\fakepath\\", "") //'helloworld.jpg'
+                        'image': fileReader.readAsBinaryString(image_to_upload.val()) //image_to_upload.val().split('/').pop().split('\\').pop() //.replace("C:\\fakepath\\", "") //'helloworld.jpg'
                     },
                     success: function() { console.log('cool'); }
                 }); 
