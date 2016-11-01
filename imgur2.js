@@ -32,10 +32,13 @@ window.GiphySearchController = (() => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
                             return $("<div></div>").addClass("col-xs-2").append(
-                                $("<img/>").attr({
-                                    src: image.link,
-                                    alt: image.title
-                                })
+                                // $("<img/>").attr({
+                                //     src: image.link,
+                                //     alt: image.title
+                                // })
+                                    $("<a></a>").attr({
+                                        href: image.link
+                                    }).text(image.title)
                                 );
                         })
                         );
