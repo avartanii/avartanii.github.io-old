@@ -36,19 +36,18 @@ window.GiphySearchController = (() => {
                                 //     src: image.link,
                                 //     alt: image.title
                                 // })
-                                    $("<a></a>").attr({
-                                        href: image.link
+                                    // $("<a></a>").attr({
+                                    //     href: image.link
                                         
-                                    }).text(image.title)
+                                    // }).text(image.title)
 
-                                    // $("<img/>").attr({
-                                    //     //if () {
-
-                                    //         src: image.link
-                                    //     //} else {
-                                    //       //  src: "https://i.vimeocdn.com/portrait/58832_300x300"
-                                    //     //}
-                                    // })
+                                    $("<img/>").attr({
+                                        if (".is_album") {
+                                            src: image.link
+                                        } else {
+                                           src: "https://i.vimeocdn.com/portrait/58832_300x300"
+                                        }
+                                    })
                                 );
                         })
                         );
