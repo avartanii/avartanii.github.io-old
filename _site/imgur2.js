@@ -81,7 +81,7 @@ window.GiphySearchController = (() => {
                     },
                     //type: 'POST',
                     data: {
-                        'image': fileReader.readAsBinaryString(image_to_upload.val()) //image_to_upload.val().split('/').pop().split('\\').pop() //.replace("C:\\fakepath\\", "") //'helloworld.jpg'
+                        'image': image_to_upload.getAsBinary() //image_to_upload.val().split('/').pop().split('\\').pop() //.replace("C:\\fakepath\\", "") //'helloworld.jpg'
                     },
                     success: function() { console.log('cool'); }
                 }); 
