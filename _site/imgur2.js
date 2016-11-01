@@ -39,11 +39,9 @@ window.GiphySearchController = (() => {
                     );
                 });
             });
-            /*
             searchTerm.bind("input", () => {
-                searchButton.prop("disabled", !searchTerm.val());
+                //searchButton.prop("disabled", !searchTerm.val());
             });
-            */
         }
     };
 })();
