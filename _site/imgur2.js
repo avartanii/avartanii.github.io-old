@@ -42,7 +42,12 @@ window.GiphySearchController = (() => {
                                     // }).text(image.title)
 
                                     $("<img/>").attr({
-                                            src: image.link.jpg
+                                        if (image.is_album) {
+
+                                            src: image.link
+                                        } else {
+                                            src: "https://i.vimeocdn.com/portrait/58832_300x300"
+                                        }
                                     })
                                 );
                         })
