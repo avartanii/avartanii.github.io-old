@@ -42,7 +42,7 @@ window.GiphySearchController = (() => {
                                     // }).text(image.title)
 
                                     $("<img/>").attr({
-                                        if (".is_album") {
+                                        if (.data(is_album)) {
                                             src: image.link
                                         } else {
                                            src: "https://i.vimeocdn.com/portrait/58832_300x300"
