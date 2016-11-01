@@ -33,8 +33,8 @@ window.GiphySearchController = (() => {
                         result.data.map((image) => {
                             return $("<div></div>").addClass("col-xs-2").append(
                                 $("<img/>").attr({
-                                    src: image.images.fixed_width.url,
-                                    alt: image.source_tld
+                                    src: image.link,
+                                    alt: image.title
                                 })
                                 );
                         })
