@@ -21,9 +21,9 @@ window.GiphySearchController = (() => {
 
             searchButton.click(() => {
                 // The getJSON function initiates a connection to the web service.
-                $.getJSON("https://imgur.com/search?q=cats", {
-                    //q: searchTerm.val(),
-                    //api_key: "Authorization: Client-Id ab16bf44f450080" // Giphy's public beta key (thank you Giphy).
+                $.getJSON("https://api.imgur.com/3/gallery/search/", {
+                    q: searchTerm.val(),
+                    Authorization: Client-ID "ab16bf44f450080" // Giphy's public beta key (thank you Giphy).
                 }).done((result) => {
                     // Receiving the response renders it in an HTML element tree then
                     // appends it to the element(s) with the class image-result-container.
