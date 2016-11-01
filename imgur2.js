@@ -36,10 +36,21 @@ window.GiphySearchController = (() => {
                                 //     src: image.link,
                                 //     alt: image.title
                                 // })
+                                if (image.is_album) {
                                     $("<a></a>").attr({
                                         href: image.link
                                         
                                     }).text(image.title)
+                                } else {
+                                    $("<img/>").attr({
+                                         src: image.link
+                                         if (is_album) {
+                                             src: image.link
+                                         } else {
+                                            src: "https://i.vimeocdn.com/portrait/58832_300x300"
+                                         }
+                                    })
+                                }
 
                                     // $("<img/>").attr({
                                     //     src: image.link
