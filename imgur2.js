@@ -1,45 +1,48 @@
-'use strict';
-/* global XMLHttpRequest */
-/* global process.env.API_IMGUR */
-const querystring = require('querystring');
+/*
+   This is a very simple example of a web front end for a publicly available web service.
+   Due to its pedagogical nature, comments are more elaborate than they typically need to
+   be, or may even be present when no developer explanation would usually be necessary.
 
+   Further, this example uses JavaScript ES6 syntax.
+*/
+"use strict";
 
-/**
- * Fetches a page of results from the Imgur API.
- *
- * @param   {String}    options.q        Query
- * @param   {Number}    options.page     Index of the page of results
- * @param   {Function}  done             Callback that receives the parsed response
- */
-module.exports = ({q = '', page = 0} = {}, done) => {
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState == XMLHttpRequest.DONE){
-      let response;
-      try {
-        response = JSON.parse(xhr.responseText);
-      } catch(e){
-        response = {};
-      }
-      if (response.success){
-        const parsed = response.data
-        .filter(result => !result.is_album)
-        .map(data => {
-          return {
-            title: data.title,
-            url: data.link,
-            width: data.width,
-            height: data.height
-          };
-        });
-        done(parsed);
-      } else {
-        done(false);
-      }
-    }
-  };
-  const url = 'https://api.imgur.com/3/gallery/search/top/' + page + '/?' + querystring.stringify({q});
-  xhr.open('GET', url, true);
-  xhr.setRequestHeader('Authorization', `Client-ID ab16bf44f450080`);
-  xhr.send(null);
-};
+// Yes, this is a "global." But it is a single entry point for all of the code in the module,
+// and in its role as the overall controller code of the page, this is one of the acceptable
+// uses for a [single!] top-level name.
+//
+// Module managers address even this issue, for web apps of sufficient complexity.
+window.GiphySearchController = (() => {
+    return {
+        init: () => {
+            var searchButton = $("#search-button");
+            var searchTerm = $("#search-term");
+            var imageResultContainer = $(".image-result-container");
+
+            searchButton.click(() => {
+                // The getJSON function initiates a connection to the web service.
+                $.getJSON("https://imgur.com/search?", {
+                    q: searchTerm.val(),
+                    api_key: "ab16bf44f450080" // Giphy's public beta key (thank you Giphy).
+                }).done((result) => {
+                    // Receiving the response renders it in an HTML element tree then
+                    // appends it to the element(s) with the class image-result-container.
+                    imageResultContainer.empty().append(
+                        result.data.map((image) => {
+                            return $("<div></div>").addClass("col-xs-2").append(
+                                $("<img/>").attr({
+                                    src: image.images.fixed_width.url,
+                                    alt: image.source_tld
+                                })
+                            );
+                        })
+                    );
+                });
+            });
+
+            searchTerm.bind("input", () => {
+                searchButton.prop("disabled", !searchTerm.val());
+            });
+        }
+    };
+})();
