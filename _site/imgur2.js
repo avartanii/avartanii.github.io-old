@@ -4,8 +4,8 @@
    be, or may even be present when no developer explanation would usually be necessary.
 
    Further, this example uses JavaScript ES6 syntax.
-*/
-"use strict";
+   */
+   "use strict";
 
 // Yes, this is a "global." But it is a single entry point for all of the code in the module,
 // and in its role as the overall controller code of the page, this is one of the acceptable
@@ -21,10 +21,12 @@ window.GiphySearchController = (() => {
 
             searchButton.click(() => {
                 // The getJSON function initiates a connection to the web service.
-                $.getJSON("https://api.imgur.com/3/gallery/search/", {
-                    q: searchTerm.val(),
-                    Authorization: Client-ID "ab16bf44f450080" // Giphy's public beta key (thank you Giphy).
-                }).done((result) => {
+                $.ajax({
+                  dataType: "json",
+                  url: "https://api.imgur.com/3/gallery/search/",
+                  data: {q: searchTerm.val()},
+                  headers: {Authorization: "Client-ID ab16bf44f450080"}
+              }).done((result) => {
                     // Receiving the response renders it in an HTML element tree then
                     // appends it to the element(s) with the class image-result-container.
                     imageResultContainer.empty().append(
@@ -34,9 +36,9 @@ window.GiphySearchController = (() => {
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
                                 })
-                            );
+                                );
                         })
-                    );
+                        );
                 });
             });
             searchTerm.bind("input", () => {
