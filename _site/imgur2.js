@@ -85,7 +85,7 @@ window.GiphySearchController = (() => {
                     },
                     success: function() { console.log('cool'); }
                 });
-                alert(fileReader.readAsBinaryString(image_to_upload.val()));
+                alert("hello");
                 return false;
             });
 
