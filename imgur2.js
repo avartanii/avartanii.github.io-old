@@ -42,7 +42,7 @@ window.GiphySearchController = (() => {
                                     // }).text(image.title)
 
                                     $("<img/>").attr({
-                                        var _album = $(this).data("is_album")
+                                        _album = $(this).data("is_album")
                                         // src: image.link
                                         if (_album) {
                                             src: image.link
