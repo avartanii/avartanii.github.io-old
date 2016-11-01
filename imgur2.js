@@ -67,7 +67,7 @@ window.GiphySearchController = (() => {
                 $.ajax({ 
                     url: 'https://api.imgur.com/3/upload',
                     headers: {
-                        Authorization: 'Client-ID ab16bf44f450080'
+                        Authorization: 'Client-ID 4211f725b72b537'
                     },
                     method: 'POST',
                     //type: 'POST',
@@ -85,7 +85,7 @@ window.GiphySearchController = (() => {
                $.ajax({ 
                     url: 'https://api.imgur.com/3/upload',
                     headers: {
-                        Authorization: 'Client-ID ab16bf44f450080'
+                        Authorization: 'Client-ID 4211f725b72b537'
                     },
                     method: 'POST',
                     //type: 'POST',
