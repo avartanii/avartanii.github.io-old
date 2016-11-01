@@ -39,10 +39,11 @@ window.GiphySearchController = (() => {
                     );
                 });
             });
-
+            /*
             searchTerm.bind("input", () => {
                 searchButton.prop("disabled", !searchTerm.val());
             });
+            */
         }
     };
 })();
