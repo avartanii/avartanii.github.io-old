@@ -41,7 +41,7 @@ window.GiphySearchController = (() => {
                                         ("<img/>").attr({
                                             src: image.link
                                         })
-                                    }).text(image.title)
+                                    })//.text(image.title)
                                 );
                         })
                         );
