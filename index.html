@@ -1,99 +1,101 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Giphy API Front End Sample</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giphy API Front End Sample</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
 
 
-  <body>
-    <h3></h3>
-    <div class="container">
+<body>
+  <h3></h3>
+  <div class="container">
     <div class="col-xs-12">
       <ul class="nav nav-pills">
         <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Menu 1
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a data-toggle="pill" href="#submenu1">Submenu 1-1</a></li>
-            <li><a data-toggle="pill" href="#">Submenu 1-2</a></li>
-            <li><a data-toggle="pill" href="#">Submenu 1-3</a></li> 
-          </ul>
-        </li>
-        <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
-        <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
-      </ul>
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="pill" href="#submenu1">Submenu 1-1</a></li>
+              <li><a data-toggle="pill" href="#">Submenu 1-2</a></li>
+              <li><a data-toggle="pill" href="#">Submenu 1-3</a></li> 
+            </ul>
+          </li>
+          <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+          <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+        </ul>
 
 
-    <div class="tab-content">
+        <div class="tab-content">
 
 
 
-      <div id="home" class="tab-pane fade in active">
-        <h3>HOME</h3>
-        <p>Some content.</p>
+          <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Some content.</p>
+          </div>
+
+
+
+          <div id="submenu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12"><h3>Giph Me!</h3></div>
+              </div>
+
+              <div class="form-group">
+                <label for="search-term">Enter a search term:</label>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+
+              <div class="form-group">
+                <button id="search-button" class="btn btn-default" enabled>Search Giphy!</button>
+              </div>
+
+              <div class="row image-result-container">
+              </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <!-- <script src="giphy-sample.js"></script> -->
+            <script src="imgur2.js"></script>
+
+            <script>window.GiphySearchController.init()</script>
+          </div>
+
+
+
+
+          <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+
+            <form action="https://api.imgur.com/3/upload" method=GET>
+              <div class="form-group">
+                <button id="upload-image" class="btn btn-default" enabled>Upload an Image!</button>
+                <input type="file" id="image_to_upload"></input>
+              </div>
+            </form>
+
+            <!-- <script src="giphy-sample.js"></script> -->
+            <script src="imgur2.js"></script>
+            <script>window.GiphySearchController.init()</script>
+
+
+          </div>
+        </div>  
       </div>
-
-
-
-      <div id="submenu1" class="tab-pane fade">
-        <h3>Menu 1</h3>
-        <p>Some content in menu 1.</p>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12"><h3>Giph Me!</h3></div>
-          </div>
-
-          <div class="form-group">
-            <label for="search-term">Enter a search term:</label>
-            <input type="text" class="form-control" id="search-term">
-          </div>
-
-          <div class="form-group">
-            <button id="search-button" class="btn btn-default" enabled>Search Giphy!</button>
-          </div>
-
-          <div class="row image-result-container">
-          </div>
-        </div>
-
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <!-- <script src="giphy-sample.js"></script> -->
-        <script src="imgur2.js"></script>
-
-        <script>window.GiphySearchController.init()</script>
-      </div>
-
-
-
-
-      <div id="menu2" class="tab-pane fade">
-        <h3>Menu 2</h3>
-        <p>Some content in menu 2.</p>
-
-        <div class="form-group">
-          <button id="upload-image" class="btn btn-default" enabled>Upload an Image!</button>
-          <input type="file" id="image_to_upload"></input>
-        </div>
-
-        <!-- <script src="giphy-sample.js"></script> -->
-        <script src="imgur2.js"></script>
-        <script>window.GiphySearchController.init()</script>
-
-
-      </div>
-    </div>  
-    </div>
 
 
     </div> 
   </body>
-</html>
+  </html>
