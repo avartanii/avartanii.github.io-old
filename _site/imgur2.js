@@ -49,15 +49,6 @@ window.GiphySearchController = (() => {
                                     //         src: "https://i.vimeocdn.com/portrait/58832_300x300"
                                     //      }
                                     // })
-
-                                    // $("<img/>").attr({
-                                    //     src: image.link
-                                    //     if (is_album) {
-                                    //         src: image.link
-                                    //     } else {
-                                    //        src: "https://i.vimeocdn.com/portrait/58832_300x300"
-                                    //     }
-                                    // })
                                 );
                         })
                         );
@@ -76,7 +67,7 @@ window.GiphySearchController = (() => {
                 $.ajax({ 
                     url: 'https://api.imgur.com/3/upload',
                     headers: {
-                        Authorization: 'Client-ID 4211f725b72b537'
+                        Authorization: 'Client-ID ab16bf44f450080'
                     },
                     method: 'POST',
                     //type: 'POST',
@@ -94,7 +85,7 @@ window.GiphySearchController = (() => {
                $.ajax({ 
                     url: 'https://api.imgur.com/3/upload',
                     headers: {
-                        Authorization: 'Client-ID 4211f725b72b537'
+                        Authorization: 'Client-ID ab16bf44f450080'
                     },
                     method: 'POST',
                     //type: 'POST',
